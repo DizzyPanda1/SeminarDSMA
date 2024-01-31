@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 
 try:
-    data = pd.read_csv("cleanedtranslations.csv", quoting =2)
+    data = pd.read_csv("cleanedtranslations.csv", engine = "pyhton")
 except pd.errors.ParserError as e:
     print("Error reading CSV file:", e)
     # Add additional debugging information, if needed

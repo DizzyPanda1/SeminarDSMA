@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 
 
-data = pd.read_csv("cleanedtranslations.csv", quoting=3, error_bad_lines=False)
+data = pd.read_csv("cleanedtranslations.csv", quoting=3)
 turnover = pd.read_csv("turnover_by_label.csv")
 returns = pd.read_csv("returns_by_label.csv")
 

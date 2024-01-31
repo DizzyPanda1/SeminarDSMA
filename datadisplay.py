@@ -3,8 +3,21 @@ import streamlit as st
 
 import plotly.express as px
 
+try:
+    data = pd.read_csv("cleanedtranslations.csv")
+except pd.errors.ParserError as e:
+    print("Error reading CSV file:", e)
+    # Add additional debugging information, if needed
+    # For example, you can print the problematic row
+    with open("cleanedtranslations.csv", "r") as file:
+        lines = file.readlines()
+        problematic_row = lines[2]  # Assuming the issue is in the third line
+        print("Problematic row:", problematic_row)
+    # Handle the exception or exit gracefully
+    st.error("Error reading CSV file. Please check the file format.")
+    st.stop()
 
-data = pd.read_csv("cleanedtranslations.csv", quoting=3)
+
 turnover = pd.read_csv("turnover_by_label.csv")
 returns = pd.read_csv("returns_by_label.csv")
 

@@ -15,7 +15,17 @@ with st.sidebar:
         )
     
 
-    
+datasets = {
+    "Hiking" : pd.read_csv("Hiking.csv"),
+    "Biking" : pd.read_csv("Biking.csv"),
+    "Fitness" : pd.read_csv("Fitness.csv"),
+    "Snow" : pd.read_csv("Snow.csv"),
+    "Water" : pd.read_csv("Water.csv")
+}
+
+
+
+
 
 with st.container():
     col1, col2 = st.columns([1, 1])
@@ -23,7 +33,7 @@ with st.container():
         "Choose a department",
         ("Hiking", "Biking", "Snow", "Water", "Fitness")
     )
-    data = pd.read_csv(f"{dpt}.csv")
+    data = datasets[dpt]
     type = col2.radio("Choose the type of plot", [1,2], horizontal=True)
 
 if type==1:

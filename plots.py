@@ -23,7 +23,7 @@ with st.container():
         "Choose a department",
         ("Hiking", "Biking", "Snow", "Water", "Fitness")
     )
-    data = pd.read_csv(f"Subsets/{dpt}.csv")
+    data = pd.read_csv(f"{dpt}.csv")
     type = col2.radio("Choose the type of plot", [1,2], horizontal=True)
 
 if type==1:

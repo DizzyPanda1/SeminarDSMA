@@ -34,7 +34,7 @@ with st.container():
         ("Hiking", "Biking", "Snow", "Water", "Fitness")
     )
     data = datasets[dpt]
-    type = col2.radio("Choose the type of plot", [1,2], horizontal=True)
+    type = col2.radio("Choose the type of plot", [1,2,3], horizontal=True)
 
 if type==1:
     with st.container():

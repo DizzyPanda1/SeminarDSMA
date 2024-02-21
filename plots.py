@@ -42,16 +42,31 @@ if type==1:
         data = data[data.note == note]
         fig = px.scatter_3d(
             data, x='x', y='y', z='z',
-            color=data["topics"] ,
+            color=data["topic_name"] ,
             hover_data=['translated', 'turnover'])
         fig.update_traces(marker_size=4)
 
         st.plotly_chart(fig, use_container_width=True)
+
 elif type==2:
     with st.container():
         fig = px.scatter_3d(
             data, x='x1', y='y1', z='note',
-            color=data["topics"] ,
+            color=data["topic_name"] ,
+            hover_data=['translated', 'turnover'])
+        fig.update_traces(marker_size=4)
+
+        st.plotly_chart(fig, use_container_width=True)
+
+elif type==3:
+    with st.container():
+        topic =  st.selectbox("select the score:", list(data.topic_name.unique()) )
+        data = data[data.topic_name == topic]
+        note = st.slider("select the score:", 1,5)
+        data = data[data.note == note]
+        fig = px.scatter_3d(
+            data, x='x', y='y', z='z',
+            color=data["the_to_type"],
             hover_data=['translated', 'turnover'])
         fig.update_traces(marker_size=4)
 

@@ -9,9 +9,7 @@ with st.sidebar:
     show_pages(
         [
             Page("finaldashboard.py", "Report", "🏠"),
-            Page("plots.py", "3D Plots", "📊"),
-            Page("returns.py", "Returns", "📦")
-        ]
+            Page("plots.py", "3D Plots", "📊")        ]
         )
     
 
